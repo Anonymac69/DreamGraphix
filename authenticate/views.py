@@ -3,13 +3,15 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib import messages
-from .forms import SignUpForm
+from .forms import SignUpForm, EditProfileForm
 
 
+# homepage function
 def home(request):
     return render(request, 'authenticate/home.html', {})
 
 
+# user login function
 def login_user(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -26,12 +28,14 @@ def login_user(request):
         return render(request, 'authenticate/login.html', {})
 
 
+# user logout function
 def logout_user(request):
     logout(request)
     messages.success(request, ('You Have Been Logged Out...'))
     return redirect('home')
 
 
+# user registration function
 def register_user(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -51,5 +55,21 @@ def register_user(request):
     return render(request, 'authenticate/register.html', context)
 
 
+# modify user profile function
 def edit_profile(request):
-    return render(request, 'authenticate/edit.html')
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, ('You Have Modified Your Profile...'))
+            return redirect('home')
+
+    else:
+        form = EditProfileForm(instance=request.user)
+
+    context = {'form': form}
+    return render(request, 'authenticate/edit.html', context)
+
+
+def change_password(request):
+    pass
