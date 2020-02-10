@@ -1,0 +1,43 @@
+def register_user(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(request, username=username, password=password)
+            login(request, user)
+            messages.success(request, ('You Have Successfully Registered...'))
+            return redirect('home')
+
+    else:
+        form = UserCreationForm()
+
+    context = {'form': form}
+    return render(request, 'authenticate/register.html', context)
+
+
+
+
+
+
+
+
+{% extends 'authenticate/base.html' %}
+
+{% block content %}
+
+<h2 class="text-center">Create an Account</h2>
+
+<form class="text-center" method="POST" action="{% url 'register' %}">
+    {% csrf_token %}
+
+    {% if form.errors %}
+    <p>We have Found an Error While Filling Your Form...</p>
+    {% endif %}
+    {{ form.as_p }}
+    <input type="submit" value="Create" class="btn btn-secondary">
+
+</form>
+
+{% endblock %}
