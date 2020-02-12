@@ -56,7 +56,7 @@ ROOT_URLCONF = 'bluefinch.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['authenticate/templates'],
+        'DIRS': ['authenticate/templates', 'surface/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

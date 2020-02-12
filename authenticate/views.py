@@ -4,9 +4,11 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib import messages
 from .forms import SignUpForm, EditProfileForm
-
+from surface.views import index
 
 # homepage function
+
+
 def home(request):
     return render(request, 'authenticate/home.html', {})
 
@@ -20,7 +22,7 @@ def login_user(request):
         if user is not None:
             login(request, user)
             messages.success(request, ('You Have Been Logged In...'))
-            return redirect('home')
+            return redirect('index')
         else:
             messages.success(request, ('Error Logging In! Please Try Again.'))
             return redirect('login')
@@ -46,7 +48,7 @@ def register_user(request):
             user = authenticate(request, username=username, password=password)
             login(request, user)
             messages.success(request, ('You Have Successfully Registered...'))
-            return redirect('home')
+            return redirect('login')
 
     else:
         form = SignUpForm()
@@ -62,7 +64,7 @@ def edit_profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, ('You Have Modified Your Profile...'))
-            return redirect('home')
+            return redirect('login')
 
     else:
         form = EditProfileForm(instance=request.user)
@@ -78,7 +80,7 @@ def change_password(request):
             form.save()
             update_session_auth_hash(request, form.user)
             messages.success(request, ('You Have Modified Your Password...'))
-            return redirect('home')
+            return redirect('login')
 
     else:
         form = PasswordChangeForm(user=request.user)
