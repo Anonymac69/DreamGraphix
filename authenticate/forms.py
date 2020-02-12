@@ -3,15 +3,6 @@ from django.contrib.auth.models import User
 from django import forms
 
 
-class EditPasswordForm(UserChangeForm):
-    password = forms.CharField(
-        label='', widget=forms.TextInput(attrs={'type': 'hidden', 'class': 'form-control'}))
-
-    class Meta:
-        model = User
-        fields = ()
-
-
 class EditProfileForm(UserChangeForm):
     password = forms.CharField(
         label='', widget=forms.TextInput(attrs={'type': 'hidden'}))
