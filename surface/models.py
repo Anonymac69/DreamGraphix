@@ -1,6 +1,7 @@
 from django.db import models
 
 
-class Gallery(models.Model):
+class Pane(models.Model):
     image = models.ImageField(upload_to='images/')
+    title = models.CharField(max_length=30)
     summary = models.CharField(max_length=250)
