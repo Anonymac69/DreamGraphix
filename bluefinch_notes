@@ -1,4 +1,4 @@
-<link href="https://fonts.googleapis.com/css?family=Comfortaa|Geo|Lobster|Patua+One|Varela+Round&display=swap"
+<link href="https://fonts.googleapis.com/css?family=Comfortaa|Geo|Lobster|Varela+Round&display=swap"
     rel="stylesheet">
 
 
@@ -6,25 +6,13 @@ font-family: 'Lobster', cursive;
 font-family: 'Varela Round', sans-serif;
 font-family: 'Geo', sans-serif;
 font-family: 'Comfortaa', cursive;
-font-family: 'Patua One', cursive;
 
 
+# CONTAINER SHADOWS
+<div class="shadow-none p-3 mb-5 bg-light rounded">No shadow</div>
+<div class="shadow-sm p-3 mb-5 bg-white rounded">Small shadow</div>
+<div class="shadow p-3 mb-5 bg-white rounded">Regular shadow</div>
+<div class="shadow-lg p-3 mb-5 bg-white rounded">Larger shadow</div>
 
-{% extends 'authenticate/base.html' %}
-
-{% block content %}
-
-
-<div class="row">
-    {% for i in panes %}
-    <div class="card" style="width: 18rem;">
-        <img src="{{ i.image }}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{ i.title }}</h5>
-            <p class="card-text">{{ i.summary }}</p>
-        </div>
-    </div>
-</div>
-{% endfor %}
-
-{% endblock %}
+# 
+<div class="d-flex p-2 bd-highlight">I'm a flexbox container!</div>

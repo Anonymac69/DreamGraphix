@@ -1,8 +1,9 @@
 {% extends 'authenticate/base.html' %}
 
 {% block content %}
-<h1>Welcome to DreamGraphix...</h1>
-
+<div class="container">
+    <h1>Welcome to DreamGraphix...</h1>
+</div>
 {% if user.is_authenticated %}
 
 <p>Name: {{ user.first_name }} {{ user.last_name}} </p>
