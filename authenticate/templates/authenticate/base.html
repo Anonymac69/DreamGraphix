@@ -5,40 +5,50 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <title>DreamGraphix&reg;</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>DreamGraphix&reg;</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Geo|Lobster|Patua+One|Varela+Round&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        .posh {
+            font-family: comfortaa;
+        }
+    </style>
+
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'home' %}">DreamGraphix</a>
+        <a class="navbar-brand posh" href="{% url 'home' %}">DreamGraphix</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse ml-auto" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse ml-auto  posh" id="navbarNavAltMarkup">
 
             {% if user.is_authenticated %}
             <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link" href="{% url 'edit' %}">Edit Profile</a>
+                <small class="nav-item nav-link" href="{% url 'edit' %}">Edit Profile</small>
             </div>
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="{% url 'change_password' %}">Change Password</a>
+                <small class="nav-item nav-link" href="{% url 'change_password' %}">Change Password</small>
             </div>
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                <small class="nav-item nav-link" href="{% url 'logout' %}">Logout</small>
             </div>
             {% else %}
             <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                <small class="nav-item nav-link" href="{% url 'login' %}">Login</small>
             </div>
 
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                <small class="nav-item nav-link" href="{% url 'register' %}">Register</small>
             </div>
             {% endif %}
 
@@ -55,14 +65,14 @@
             </button>
             {{ message }}
         </div>
-        {% endfor %}
-        {% endif %}
-
-
-
-        {% block content %}
-        {% endblock %}
     </div>
+    {% endfor %}
+    {% endif %}
+
+    {% block content %}
+
+
+    {% endblock %}
 
 
 
