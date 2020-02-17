@@ -1,4 +1,5 @@
 <!doctype html>
+{% load static %}
 <html lang="en">
 
 <head>
@@ -13,45 +14,42 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Geo|Lobster|Patua+One|Varela+Round&display=swap"
         rel="stylesheet">
-
-
-    <style>
-        .posh {
-            font-family: comfortaa;
-        }
-    </style>
-
+    <link rel="stylesheet" href="{% static '/css/styles.css' %}">
 </head>
+
+
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand posh" href="{% url 'index' %}">DreamGraphix</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse ml-auto  posh" id="navbarNavAltMarkup">
+        <div class="container">
+            <a class="navbar-brand posh" href="{% url 'index' %}">DreamGraphix</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ml-auto  posh" id="navbarNavAltMarkup">
 
-            {% if user.is_authenticated %}
-            <div class="navbar-nav ml-auto">
-                <small><a class="nav-item nav-link" href="{% url 'edit' %}">Edit Profile</a></small>
-            </div>
-            <div class="navbar-nav">
-                <small><a class="nav-item nav-link" href="{% url 'change_password' %}">Change Password</a></small>
-            </div>
-            <div class="navbar-nav">
-                <small><a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a></small>
-            </div>
-            {% else %}
-            <div class="navbar-nav ml-auto">
-                <small></a><small class="nav-item nav-link" href="{% url 'login' %}">Login</a></small>
-            </div>
+                {% if user.is_authenticated %}
+                <div class="navbar-nav ml-auto">
+                    <small><a class="nav-item nav-link" href="{% url 'edit' %}">Edit Profile</a></small>
+                </div>
+                <div class="navbar-nav">
+                    <small><a class="nav-item nav-link" href="{% url 'change_password' %}">Change Password</a></small>
+                </div>
+                <div class="navbar-nav">
+                    <small><a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a></small>
+                </div>
+                {% else %}
+                <div class="navbar-nav ml-auto">
+                    <small><a class="nav-item nav-link" href="{% url 'login' %}">Login</a></small>
+                </div>
 
-            <div class="navbar-nav">
-                <small><a class="nav-item nav-link" href="{% url 'register' %}">Register</a></small>
-            </div>
-            {% endif %}
+                <div class="navbar-nav">
+                    <small><a class="nav-item nav-link" href="{% url 'register' %}">Register</a></small>
+                </div>
+                {% endif %}
 
+            </div>
         </div>
     </nav>
 

@@ -6,6 +6,11 @@
 <div class="container">
 
 
+    <div class="banner">
+        <img src="/static/images/sail.jpg" width="100%" height="550px" alt=""
+            style="border-radius: 15px; border: 2px solid gray">
+    </div>
+    <br><br>
     <div class="row">
         <div class="d-flex flex-wrap bd-highlight">
             {% for i in panes.all %}
@@ -14,7 +19,7 @@
                 <div class="card-body bg-light">
                     <h5 class="card-title posh">{{ i.title }}</h5>
                     <hr>
-                    <p class="card-text text-muted"><span style="font-size:13px">{{ i.summary }}</span></p>
+                    <p class="card-text text-muted"><span style="font-size:14px">{{ i.summary }}</span></p>
                 </div>
             </div>
             {% endfor %}

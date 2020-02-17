@@ -1,0 +1,9 @@
+.banner {
+    background-image: url('/static/images/banner.jpg');
+}
+
+.posh {
+    color: red;
+    font-family: Lobster;
+    font-size: 16px !important;
+}
