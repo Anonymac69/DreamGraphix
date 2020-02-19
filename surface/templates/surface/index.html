@@ -7,29 +7,34 @@
 
 
     <div class="banner">
-        <img src="/static/images/sail.jpg" width="100%" height="550px" alt=""
-            style="border-radius: 15px; border: 2px solid gray">
-    </div>
-    <br><br>
-
-    <h1 class="lime">Hello World!</h1>
-
-
-    <div class="row">
-        <div class="d-flex flex-wrap bd-highlight">
-            {% for i in panes.all %}
-            <div class="card text-center mt-3 mb-3 mr-3 ml-3 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
-                <img src="{{ i.image.url }}" class="card-img-top" alt="..."> <br>
-                <div class="card-body bg-light">
-                    <h5 class="card-title posh">{{ i.title }}</h5>
-                    <hr>
-                    <p class="card-text text-muted lime"><span style="font-size:14px">{{ i.summary }}</span></p>
-                </div>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container pl-5">
+                <h1 class="display-4">DreamGraphix</h1>
+                <p class="lead font-alt-1">Bringing Your Dreams to Reality.</p>
             </div>
-            {% endfor %}
         </div>
     </div>
 
+
+    <br><br>
+
+    <div class="">
+        <div class="row">
+            <div class="d-flex flex-wrap bd-highlight pl-4">
+                {% for i in panes.all %}
+                <div class="card text-center mt-3 mb-3 mr-2 ml-5 shadow-sm p-3 mb-5 bg-white rounded"
+                    style="width: 18rem;">
+                    <img src="{{ i.image.url }}" class="card-img-top" alt="..."> <br>
+                    <div class="card-body bg-light">
+                        <h5 class="card-title posh">{{ i.title }}</h5>
+                        <hr>
+                        <p class="card-text text-muted posh"><span style="font-size:14px">{{ i.summary }}</span></p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </div>
 
 

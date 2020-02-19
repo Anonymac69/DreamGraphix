@@ -1,9 +1,9 @@
-.banner {
-    background-image: url('/static/images/banner.jpg');
-}
-
 .posh {
     color: red;
     font-family: Comfortaa;
     font-size: 16px !important;
+}
+
+.font-alt-1 {
+    font-family: Comfortaa !important;
 }
